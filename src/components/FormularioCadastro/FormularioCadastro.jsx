@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import DadosPessoais from "./DadosPessoais";
+import React, { useState } from 'react';
+import DadosPessoais from './DadosPessoais';
 import DadosUsuario from './DadosUsuario';
 
-function FormularioCadastro({aoEnviar, validarCPF}) {
-
+function FormularioCadastro({ aoEnviar, validarCPF }) {
   return (
     <>
-    <DadosPessoais aoEnviar={aoEnviar} validarCPF={validarCPF}/>
-    <DadosUsuario/>
-</>
+      <DadosPessoais aoEnviar={aoEnviar} validarCPF={validarCPF} />
+      <DadosUsuario />
+    </>
   );
 }
 
