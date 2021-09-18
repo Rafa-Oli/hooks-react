@@ -1,16 +1,22 @@
 import { Button, TextField } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import { FormRegisterProps } from './form-register-interface';
 
 function DataUser({ onSubmit }: FormRegisterProps) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        onSubmit();
+        onSubmit({ email, password });
       }}
     >
       <TextField
+        value={email}
+        onChange={(event) => {
+          setEmail(event.target.value);
+        }}
         variant='outlined'
         margin='normal'
         fullWidth
@@ -20,6 +26,10 @@ function DataUser({ onSubmit }: FormRegisterProps) {
         type='email'
       />
       <TextField
+        value={password}
+        onChange={(event) => {
+          setPassword(event.target.value);
+        }}
         variant='outlined'
         margin='normal'
         fullWidth
