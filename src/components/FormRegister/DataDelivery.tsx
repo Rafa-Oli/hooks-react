@@ -1,7 +1,8 @@
 import { TextField, Button } from '@material-ui/core';
 import React from 'react';
+import { FormRegisterProps } from './form-register-interface';
 
-function DataDelivery() {
+function DataDelivery({ onSubmit }: FormRegisterProps) {
   return (
     <form>
       <TextField

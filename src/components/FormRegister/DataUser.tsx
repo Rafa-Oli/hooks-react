@@ -1,13 +1,20 @@
 import { Button, TextField } from '@material-ui/core';
 import React from 'react';
+import { FormRegisterProps } from './form-register-interface';
 
-function DataUser() {
+function DataUser({ onSubmit }: FormRegisterProps) {
   return (
-    <form>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        onSubmit();
+      }}
+    >
       <TextField
         variant='outlined'
         margin='normal'
         fullWidth
+        required
         id='email'
         label='Email'
         type='email'
@@ -16,6 +23,7 @@ function DataUser() {
         variant='outlined'
         margin='normal'
         fullWidth
+        required
         id='password'
         label='Password'
         type='password'

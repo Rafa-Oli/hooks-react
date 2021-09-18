@@ -1,4 +1,4 @@
 export interface FormRegisterProps{
-    onSubmit: any
-    validCPF: Function
+    onSubmit: Function
+    validCPF?: Function 
 }
