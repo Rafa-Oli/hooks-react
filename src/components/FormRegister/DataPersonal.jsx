@@ -44,7 +44,7 @@ function DadosPessoais({ aoEnviar, validCPF }) {
         }}
         onBlur={(event) => {
           const isValid = validCPF(cpf);
-          setErros({ cpf: isValid });
+          setErrors({ cpf: isValid });
         }}
         error={!errors.cpf.valid}
         helperText={errors.cpf.text}
@@ -75,7 +75,7 @@ function DadosPessoais({ aoEnviar, validCPF }) {
           <Switch
             checked={news}
             onChange={(event) => {
-              setNovidades(event.target.checked);
+              setNews(event.target.checked);
             }}
             name='news'
             color='primary'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
+import FormRegister from './components/FormRegister/FormRegister';
 import 'fontsource-roboto';
 
 import { Container, Typography } from '@material-ui/core';
@@ -9,9 +9,9 @@ class App extends Component {
     return (
       <Container component='article' maxWidth='sm'>
         <Typography variant='h3' component='h1' align='center'>
-          Formulário de cadastro
+        Registration form
         </Typography>
-        <FormularioCadastro aoEnviar={aoEnviarForm} validarCPF={validarCPF} />
+        <FormRegister aoEnviar={aoEnviarForm} validarCPF={validarCPF} />
       </Container>
     );
   }
