@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { TextField, Button, Switch, FormControlLabel } from '@material-ui/core';
+import { FormRegisterProps } from './form-register-interface';
 
-function DadosPessoais({ aoEnviar, validCPF }) {
+function DataPersonal({ onSubmit, validCPF }: FormRegisterProps) {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [cpf, setCpf] = useState('');
@@ -12,7 +13,7 @@ function DadosPessoais({ aoEnviar, validCPF }) {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        aoEnviar({ name, surname, cpf,news, promotions });
+        onSubmit({ name, surname, cpf, news, promotions });
       }}
     >
       <TextField
@@ -84,10 +85,10 @@ function DadosPessoais({ aoEnviar, validCPF }) {
       />
 
       <Button type='submit' variant='contained' color='primary'>
-       Register
+        Register
       </Button>
     </form>
   );
 }
 
-export default DadosPessoais;
+export default DataPersonal;

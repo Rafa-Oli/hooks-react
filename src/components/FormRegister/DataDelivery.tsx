@@ -1,6 +1,5 @@
 import { TextField, Button } from '@material-ui/core';
 import React from 'react';
-import DadosPessoais from './DataPersonal';
 
 function DataDelivery() {
   return (
@@ -46,7 +45,7 @@ function DataDelivery() {
         type='text'
       />
       <Button type='submit' variant='contained' color='primary' fullWidth>
-      Finish Registration
+        Finish Registration
       </Button>
     </form>
   );

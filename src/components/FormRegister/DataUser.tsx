@@ -1,7 +1,7 @@
 import { Button, TextField } from '@material-ui/core';
 import React from 'react';
 
-function DadosUsuario() {
+function DataUser() {
   return (
     <form>
       <TextField
@@ -9,7 +9,7 @@ function DadosUsuario() {
         margin='normal'
         fullWidth
         id='email'
-        label='email'
+        label='Email'
         type='email'
       />
       <TextField
@@ -17,14 +17,14 @@ function DadosUsuario() {
         margin='normal'
         fullWidth
         id='password'
-        label='password'
+        label='Password'
         type='password'
       />
       <Button type='submit' variant='contained' color='primary'>
-        Cadastrar
+        Next
       </Button>
     </form>
   );
 }
 
-export default DadosUsuario;
+export default DataUser;

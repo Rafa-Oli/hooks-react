@@ -11,17 +11,17 @@ class App extends Component {
         <Typography variant='h3' component='h1' align='center'>
         Registration form
         </Typography>
-        <FormRegister aoEnviar={aoEnviarForm} validarCPF={validarCPF} />
+        <FormRegister onSubmit={onSubmit} validCPF={validCPF} />
       </Container>
     );
   }
 }
 
-function aoEnviarForm(dados) {
+function onSubmit(dados) {
   console.log(dados);
 }
 
-function validarCPF(cpf) {
+function validCPF(cpf) {
   if (cpf.length !== 11) {
     return { valido: false, texto: 'CPF deve ter 11 digitos.' };
   } else {
