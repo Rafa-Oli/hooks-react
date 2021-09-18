@@ -22,7 +22,7 @@ function DataPersonal({ onSubmit, validCPF }: FormRegisterProps) {
           setName(event.target.value);
         }}
         id='name'
-        label='Nome'
+        label='Name'
         variant='outlined'
         margin='normal'
         fullWidth
@@ -32,8 +32,8 @@ function DataPersonal({ onSubmit, validCPF }: FormRegisterProps) {
         onChange={(event) => {
           setSurname(event.target.value);
         }}
-        id='sobrenome'
-        label='Sobrenome'
+        id='surname'
+        label='Surname'
         variant='outlined'
         margin='normal'
         fullWidth
