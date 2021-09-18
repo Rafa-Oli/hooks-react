@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
 import { TextField, Button, Switch, FormControlLabel } from '@material-ui/core';
-import { FormRegisterProps } from './form-register-interface';
+import { FormRegisterProps, Error } from './form-register-interface';
 
-function DataPersonal({ onSubmit, validCPF }: FormRegisterProps) {
+function DataPersonal({ onSubmit, validations }: FormRegisterProps) {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [cpf, setCpf] = useState('');
   const [promotions, setPromotions] = useState(true);
   const [news, setNews] = useState(false);
-  const [errors, setErrors] = useState({ cpf: { valid: true, text: '' } });
+  const [errors, setErrors] = useState<Error>({
+    cpf: { valid: true, text: '' },
+  });
+
+  function validFields(event: any) {
+    const { name, value } = event.target;
+    const newState = { ...errors };
+    newState[name] = validations[name](value);
+    setErrors(newState);
+    console.log(newState);
+  }
+
   return (
     <form
       onSubmit={(event) => {
@@ -43,13 +54,11 @@ function DataPersonal({ onSubmit, validCPF }: FormRegisterProps) {
         onChange={(event) => {
           setCpf(event.target.value);
         }}
-        onBlur={(event) => {
-          const isValid = validCPF(cpf);
-          setErrors({ cpf: isValid });
-        }}
+        onBlur={validFields}
         error={!errors.cpf.valid}
         helperText={errors.cpf.text}
         id='CPF'
+        name='cpf'
         label='CPF'
         variant='outlined'
         margin='normal'
