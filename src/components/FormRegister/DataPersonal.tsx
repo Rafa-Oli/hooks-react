@@ -85,7 +85,7 @@ function DataPersonal({ onSubmit, validCPF }: FormRegisterProps) {
       />
 
       <Button type='submit' variant='contained' color='primary'>
-        Register
+        Next
       </Button>
     </form>
   );
