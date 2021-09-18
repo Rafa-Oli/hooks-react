@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import DadosPessoais from './DadosPessoais';
-import DadosUsuario from './DadosUsuario';
-import DadosEntrega from './DadosEntrega';
+import DadosPessoais from './DataPersonal';
+import DadosUsuario from './DataUser';
+import DadosEntrega from './DataDelivery';
 
 function FormularioCadastro({ aoEnviar, validarCPF }) {
   return (
     <>
       <DadosPessoais aoEnviar={aoEnviar} validarCPF={validarCPF} />
       <DadosUsuario />
-      <DadosEntrega/>
     </>
   );
 }
+{/* <DadosEntrega/> */}
 
 export default FormularioCadastro;

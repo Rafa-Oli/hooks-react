@@ -1,8 +1,8 @@
 import { TextField, Button } from '@material-ui/core';
 import React from 'react';
-import DadosPessoais from './DadosPessoais';
+import DadosPessoais from './DataPersonal';
 
-function DadosEntrega() {
+function DataDelivery() {
   return (
     <form>
       <TextField
@@ -17,38 +17,38 @@ function DadosEntrega() {
         variant='outlined'
         margin='normal'
         fullWidth
-        id='endereco'
-        label='Endereço'
+        id='address'
+        label='Address'
         type='text'
       />
       <TextField
         variant='outlined'
         margin='normal'
         fullWidth
-        id='numero'
-        label='Número'
+        id='number'
+        label='Number'
         type='number'
       />
       <TextField
         variant='outlined'
         margin='normal'
         fullWidth
-        id='estado'
-        label='Estado'
+        id='state'
+        label='State'
         type='text'
       />
       <TextField
         variant='outlined'
         margin='normal'
         fullWidth
-        id='cidade'
-        label='Cidade'
+        id='city'
+        label='City'
         type='text'
       />
       <Button type='submit' variant='contained' color='primary' fullWidth>
-        Finalizar cadastro
+      Finish Registration
       </Button>
     </form>
   );
 }
-export default DadosEntrega;
+export default DataDelivery;

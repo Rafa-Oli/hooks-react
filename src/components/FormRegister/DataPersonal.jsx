@@ -1,35 +1,35 @@
 import React, { useState } from 'react';
 import { TextField, Button, Switch, FormControlLabel } from '@material-ui/core';
 
-function DadosPessoais({ aoEnviar, validarCPF }) {
-  const [nome, setNome] = useState('');
-  const [sobrenome, setSobrenome] = useState('');
+function DadosPessoais({ aoEnviar, validCPF }) {
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
   const [cpf, setCpf] = useState('');
-  const [promocoes, setPromocoes] = useState(true);
-  const [novidades, setNovidades] = useState(false);
-  const [erros, setErros] = useState({ cpf: { valido: true, texto: '' } });
+  const [promotions, setPromotions] = useState(true);
+  const [news, setNews] = useState(false);
+  const [errors, setErrors] = useState({ cpf: { valid: true, text: '' } });
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        aoEnviar({ nome, sobrenome, cpf, novidades, promocoes });
+        aoEnviar({ name, surname, cpf,news, promotions });
       }}
     >
       <TextField
-        value={nome}
+        value={name}
         onChange={(event) => {
-          setNome(event.target.value);
+          setName(event.target.value);
         }}
-        id='nome'
+        id='name'
         label='Nome'
         variant='outlined'
         margin='normal'
         fullWidth
       />
       <TextField
-        value={sobrenome}
+        value={surname}
         onChange={(event) => {
-          setSobrenome(event.target.value);
+          setSurname(event.target.value);
         }}
         id='sobrenome'
         label='Sobrenome'
@@ -43,11 +43,11 @@ function DadosPessoais({ aoEnviar, validarCPF }) {
           setCpf(event.target.value);
         }}
         onBlur={(event) => {
-          const ehValido = validarCPF(cpf);
-          setErros({ cpf: ehValido });
+          const isValid = validCPF(cpf);
+          setErros({ cpf: isValid });
         }}
-        error={!erros.cpf.valido}
-        helperText={erros.cpf.texto}
+        error={!errors.cpf.valid}
+        helperText={errors.cpf.text}
         id='CPF'
         label='CPF'
         variant='outlined'
@@ -56,35 +56,35 @@ function DadosPessoais({ aoEnviar, validarCPF }) {
       />
 
       <FormControlLabel
-        label='Promoções'
+        label='Promotions'
         control={
           <Switch
-            checked={promocoes}
+            checked={promotions}
             onChange={(event) => {
-              setPromocoes(event.target.checked);
+              setPromotions(event.target.checked);
             }}
-            name='promocoes'
+            name='promotions'
             color='primary'
           />
         }
       />
 
       <FormControlLabel
-        label='Novidades'
+        label='News'
         control={
           <Switch
-            checked={novidades}
+            checked={news}
             onChange={(event) => {
               setNovidades(event.target.checked);
             }}
-            name='novidades'
+            name='news'
             color='primary'
           />
         }
       />
 
       <Button type='submit' variant='contained' color='primary'>
-        Cadastrar
+       Register
       </Button>
     </form>
   );
