@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import { TextField, Button, Switch, FormControlLabel } from '@material-ui/core';
 import { FormRegisterProps, Error } from './form-register-interface';
+import useDataPersonal from '../../hook/useDataPersonal';
+import useError from '../../hook/useError';
 
 function DataPersonal({ onSubmit, validations }: FormRegisterProps) {
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [cpf, setCpf] = useState('');
-  const [promotions, setPromotions] = useState(true);
-  const [news, setNews] = useState(false);
-  const [errors, setErrors] = useState<Error>({
-    cpf: { valid: true, text: '' },
-    name: { valid: true, text: '' },
-  });
+  const {
+    cpf,
+    name,
+    news,
+    surname,
+    promotions,
+    setCpf,
+    setName,
+    setNews,
+    setPromotions,
+    setSurname,
+  } = useDataPersonal();
+
+  const { errors, setErrors } = useError();
 
   function validFields(event: any) {
     const { name, value } = event.target;

@@ -1,13 +1,22 @@
 import { TextField, Button } from '@material-ui/core';
-import React, { useState } from 'react';
+import React from 'react';
 import { FormRegisterProps } from './form-register-interface';
+import useDataDelivery from '../../hook/useDataDelivery';
 
 function DataDelivery({ onSubmit }: FormRegisterProps) {
-  const [cep, setCep] = useState('');
-  const [address, setAddress] = useState('');
-  const [number, setNumber] = useState('');
-  const [state, setState] = useState('');
-  const [city, setCity] = useState('');
+  const {
+    address,
+    cep,
+    number,
+    city,
+    state,
+    setAddress,
+    setCep,
+    setCity,
+    setNumber,
+    setState,
+  } = useDataDelivery();
+
   return (
     <form
       onSubmit={(event) => {

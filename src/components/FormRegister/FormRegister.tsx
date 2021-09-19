@@ -8,6 +8,7 @@ import { Step, StepLabel, Stepper, Typography } from '@material-ui/core';
 function FormRegister({ onSubmit, validations }: FormRegisterProps) {
   const [stepActual, setStepActual] = useState(0);
   const [dataCollected, setDataCollected] = useState({});
+
   const forms = [
     <DataUser onSubmit={collectData} validations={validations} />,
     <DataPersonal onSubmit={collectData} validations={validations} />,
@@ -16,12 +17,11 @@ function FormRegister({ onSubmit, validations }: FormRegisterProps) {
   ];
 
   useEffect(() => {
-    stepActual === forms.length - 1 ?? onSubmit(dataCollected);
+    if (stepActual === forms.length - 1) onSubmit(dataCollected);
   });
 
   function collectData(data: any) {
     setDataCollected({ ...dataCollected, ...data });
-    console.log(dataCollected);
     next();
   }
   function next() {

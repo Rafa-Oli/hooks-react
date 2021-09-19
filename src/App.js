@@ -19,7 +19,7 @@ class App extends Component {
 }
 
 function onSubmit(dados) {
-  console.log(dados);
+  console.log("data",dados);
 }
 
 

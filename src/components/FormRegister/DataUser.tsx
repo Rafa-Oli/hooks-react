@@ -1,13 +1,12 @@
 import { Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
+import useDataUser from '../../hook/useDataUser';
+import useError from '../../hook/useError';
 import { FormRegisterProps, Error } from './form-register-interface';
 
 function DataUser({ onSubmit, validations }: FormRegisterProps) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState<Error>({
-    password: { valid: true, text: '' },
-  });
+  const { email, password, setEmail, setPassword } = useDataUser();
+  const { errors, setErrors } = useError();
 
   function validFields(event: any) {
     const { name, value } = event.target;
