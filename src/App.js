@@ -12,7 +12,7 @@ class App extends Component {
         <Typography variant='h3' component='h1' align='center'>
         Registration form
         </Typography>
-        <FormRegister onSubmit={onSubmit} validations={{'cpf': validCPF,'password': validPassword}} />
+        <FormRegister onSubmit={onSubmit} validations={{'cpf': validCPF,'password': validPassword, 'name': validPassword}} />
       </Container>
     );
   }

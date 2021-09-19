@@ -10,6 +10,7 @@ function DataPersonal({ onSubmit, validations }: FormRegisterProps) {
   const [news, setNews] = useState(false);
   const [errors, setErrors] = useState<Error>({
     cpf: { valid: true, text: '' },
+    name: { valid: true, text: '' },
   });
 
   function validFields(event: any) {
@@ -17,14 +18,20 @@ function DataPersonal({ onSubmit, validations }: FormRegisterProps) {
     const newState = { ...errors };
     newState[name] = validations[name](value);
     setErrors(newState);
-    console.log(newState);
+  }
+
+  function isSubmit() {
+    for (let field in errors) {
+      if (!errors[field].valid) return false;
+    }
+    return true;
   }
 
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        onSubmit({ name, surname, cpf, news, promotions });
+        if (isSubmit()) onSubmit({ name, surname, cpf, news, promotions });
       }}
     >
       <TextField
@@ -32,7 +39,11 @@ function DataPersonal({ onSubmit, validations }: FormRegisterProps) {
         onChange={(event) => {
           setName(event.target.value);
         }}
+        onBlur={validFields}
+        error={!errors.name.valid}
+        helperText={errors.name.text}
         id='name'
+        name='name'
         label='Name'
         variant='outlined'
         margin='normal'

@@ -1,15 +1,34 @@
 import { Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
-import { FormRegisterProps } from './form-register-interface';
+import { FormRegisterProps, Error } from './form-register-interface';
 
-function DataUser({ onSubmit }: FormRegisterProps) {
+function DataUser({ onSubmit, validations }: FormRegisterProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState<Error>({
+    password: { valid: true, text: '' },
+  });
+
+  function validFields(event: any) {
+    const { name, value } = event.target;
+    const newState = { ...errors };
+    newState[name] = validations[name](value);
+    setErrors(newState);
+  }
+
+  function isSubmit() {
+    for (let field in errors) {
+      if (!errors[field].valid) return false;
+    }
+    return true;
+  }
+
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        onSubmit({ email, password });
+        console.log(email, password);
+        if (isSubmit()) onSubmit({ email, password });
       }}
     >
       <TextField
@@ -32,7 +51,11 @@ function DataUser({ onSubmit }: FormRegisterProps) {
         }}
         variant='outlined'
         margin='normal'
+        error={!errors.password.valid}
+        helperText={errors.password.text}
         fullWidth
+        onBlur={validFields}
+        name='password'
         required
         id='password'
         label='Password'

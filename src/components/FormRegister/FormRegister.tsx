@@ -21,6 +21,7 @@ function FormRegister({ onSubmit, validations }: FormRegisterProps) {
 
   function collectData(data: any) {
     setDataCollected({ ...dataCollected, ...data });
+    console.log(dataCollected);
     next();
   }
   function next() {
