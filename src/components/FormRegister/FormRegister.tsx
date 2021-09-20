@@ -5,14 +5,14 @@ import DataDelivery from './DataDelivery';
 import { FormRegisterProps } from './form-register-interface';
 import { Step, StepLabel, Stepper, Typography } from '@material-ui/core';
 
-function FormRegister({ onSubmit, validations }: FormRegisterProps) {
+function FormRegister({ onSubmit }: FormRegisterProps) {
   const [stepActual, setStepActual] = useState(0);
   const [dataCollected, setDataCollected] = useState({});
 
   const forms = [
-    <DataUser onSubmit={collectData} validations={validations} />,
-    <DataPersonal onSubmit={collectData} validations={validations} />,
-    <DataDelivery onSubmit={collectData} validations={validations} />,
+    <DataUser onSubmit={collectData} />,
+    <DataPersonal onSubmit={collectData} />,
+    <DataDelivery onSubmit={collectData} />,
     <Typography variant={'h5'}>Thank you for registering!</Typography>,
   ];
 

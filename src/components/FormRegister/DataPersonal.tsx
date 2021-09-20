@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { TextField, Button, Switch, FormControlLabel } from '@material-ui/core';
 import { FormRegisterProps, Error } from './form-register-interface';
 import useDataPersonal from '../../hook/useDataPersonal';
 import useError from '../../hook/useError';
+import ValidationsRegister from '../../contexts/validations-register';
 
-function DataPersonal({ onSubmit, validations }: FormRegisterProps) {
+function DataPersonal({ onSubmit }: FormRegisterProps) {
   const {
     cpf,
     name,
@@ -18,6 +19,7 @@ function DataPersonal({ onSubmit, validations }: FormRegisterProps) {
     setSurname,
   } = useDataPersonal();
 
+  const validations = useContext(ValidationsRegister);
   const { errors, setErrors } = useError();
 
   function validFields(event: any) {
