@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import ValidationsRegister from '../../contexts/validations-register';
 import useDataUser from '../../hook/useDataUser';
 import useError from '../../hook/useError';
-import { FormRegisterProps, Error } from './form-register-interface';
+import { FormRegisterProps } from './form-register-interface';
 
 function DataUser({ onSubmit }: FormRegisterProps) {
   const { email, password, setEmail, setPassword } = useDataUser();
@@ -16,7 +16,6 @@ function DataUser({ onSubmit }: FormRegisterProps) {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        console.log(email, password);
         if (isSubmit()) onSubmit({ email, password });
       }}
     >
