@@ -20,21 +20,7 @@ function DataPersonal({ onSubmit }: FormRegisterProps) {
   } = useDataPersonal();
 
   const validations = useContext(ValidationsRegister);
-  const { errors, setErrors } = useError();
-
-  function validFields(event: any) {
-    const { name, value } = event.target;
-    const newState = { ...errors };
-    newState[name] = validations[name](value);
-    setErrors(newState);
-  }
-
-  function isSubmit() {
-    for (let field in errors) {
-      if (!errors[field].valid) return false;
-    }
-    return true;
-  }
+  const { errors, validFields, isSubmit } = useError(validations);
 
   return (
     <form

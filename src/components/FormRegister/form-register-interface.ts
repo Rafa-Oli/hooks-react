@@ -10,7 +10,4 @@ export interface FormRegisterProps{
 
 export interface Error{
     [key: string]: {valid: boolean, text: string};
-    cpf?: { valid: boolean, text: string } ,
-    password?: { valid: boolean, text: string } 
-    name?: { valid: boolean, text: string } 
 }

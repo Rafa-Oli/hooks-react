@@ -7,23 +7,10 @@ import { FormRegisterProps, Error } from './form-register-interface';
 
 function DataUser({ onSubmit }: FormRegisterProps) {
   const { email, password, setEmail, setPassword } = useDataUser();
-  const { errors, setErrors } = useError();
 
   const validations = useContext(ValidationsRegister);
 
-  function validFields(event: any) {
-    const { name, value } = event.target;
-    const newState = { ...errors };
-    newState[name] = validations[name](value);
-    setErrors(newState);
-  }
-
-  function isSubmit() {
-    for (let field in errors) {
-      if (!errors[field].valid) return false;
-    }
-    return true;
-  }
+  const { errors, validFields, isSubmit } = useError(validations);
 
   return (
     <form
